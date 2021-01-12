@@ -4,7 +4,7 @@ public class SearchDemo2 {
 
         System.out.println("Starting SearchDemo2");
 
-        SearchArray searchArray = new SearchArray(1, "./values.txt");
+        SearchArray searchArray = new SearchArray(1, 10_000_000);
         searchArray.load();
         System.out.println("SearchDemo2: loading entries finished");
 

@@ -3,7 +3,7 @@ public class SearchDemo3 {
     public static void main(String[] args) {
         System.out.println("Starting SearchDemo3");
 
-        SearchArray searchArray = new SearchArray(1, "./values.txt");
+        SearchArray searchArray = new SearchArray(1, 10_000_000);
         searchArray.load();
         System.out.println("SearchDemo3: loading entries finished");
 
