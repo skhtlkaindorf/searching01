@@ -4,7 +4,7 @@ public class SearchDemo2 {
 
         System.out.println("Starting SearchDemo2");
 
-        SearchArray searchArray = new SearchArray(1, 10_000_000);
+        SearchArray searchArray = new SearchArray(2, 10_000_000);
         searchArray.load();
         System.out.println("SearchDemo2: loading entries finished");
 
@@ -34,8 +34,18 @@ public class SearchDemo2 {
 
     public static int search(SearchArray array, int value, int left, int right){
         // Your Code
+        if (right < left)
+            return -1;
 
-        return -1;
+        //System.out.println("search for value: " + value);
+
+        int mid = (left + right) / 2;
+        if (value == array.get(mid))
+            return mid; // wir haben den index gefunden
+        else if (value < array.get(mid))
+            return search(array, value, left, mid -1);
+        else
+            return search(array, value, mid + 1, right);
     }
 
     private static void searchFor(SearchArray array, int value ){

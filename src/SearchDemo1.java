@@ -4,18 +4,20 @@ public class SearchDemo1 {
 
         System.out.println("Starting SearchDemo1");
 
-        SearchArray searchArray = new SearchArray(1, 10_000_000);
+        SearchArray searchArray = new SearchArray(2, 10_000_000);
         searchArray.load();
         System.out.println("SearchDemo1: loading entries finished");
 
         // count of entries ...
         System.out.println("searchArray.length() = " + searchArray.length());
         // get one element ...
-        System.out.println("searchArray.get(10) = " + searchArray.get(10));
+        System.out.println("searchArray.get(10) = " + searchArray.get(15));
 
         System.out.println("searching ...");
 
         // LOOKING for 314699018
+        searchFor(searchArray, 314699018);
+
         searchFor(searchArray, 314699018);
 
         // LOOKING for 816387057
@@ -33,9 +35,17 @@ public class SearchDemo1 {
 
     public static int search(SearchArray array, int value, int left, int right){
 
+        // left = 0
+        // right = 9.999.999
         // Your Code
+        int cnt = left;
+        while (cnt <= right && array.get(cnt) != value)
+            cnt++;
 
-        return -1;
+        if (cnt > right)
+            return -1;
+
+        return cnt;
     }
 
     private static void searchFor(SearchArray array, int value ){
