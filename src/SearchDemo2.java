@@ -40,9 +40,10 @@ public class SearchDemo2 {
         //System.out.println("search for value: " + value);
 
         int mid = (left + right) / 2;
-        if (value == array.get(mid))
+        int valueMid = array.get(mid);
+        if (value == valueMid)
             return mid; // wir haben den index gefunden
-        else if (value < array.get(mid))
+        else if (value < valueMid)
             return search(array, value, left, mid -1);
         else
             return search(array, value, mid + 1, right);
